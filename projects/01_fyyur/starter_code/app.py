@@ -61,7 +61,8 @@ def venues():
     notFound = True
     #Iterate over previously returned venues and added in response, then check if the city and state is already present
     for dt in data:
-      if (dt["city"] == venue.city and dt["state"] == venue.state):
+      # Convert City in upper case for comparison
+      if (dt["city"].upper() == venue.city.upper() and dt["state"] == venue.state):
         notFound = False
         #City, State found append venue to the already added city, state
         dt["venues"].append({
